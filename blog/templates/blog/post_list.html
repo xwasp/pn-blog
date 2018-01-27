@@ -4,10 +4,13 @@
         <title>xwasp blogs</title>
     </head>
     <body> 
-        <h1>My Blog</h1>
-        <h2>My blog title here</h2>
-        <p>
-            if only <strong><em>someone</em></strong> could write something here...
-        </p>
+        <h1><i>News of the Times</i></h1>
+        {%for post in posts%}
+        <div>
+        <h2>{{post.title}}</h2>
+        <p>{{post.text|linebreaksbr}}</p>
+        <i>{{post.published_date}}</i>
+        </div>
+        {%endfor%}
     </body>
 </html>
