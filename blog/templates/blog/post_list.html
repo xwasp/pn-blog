@@ -1,16 +1,36 @@
-<!doctype HTML>
-<html>  
-    <head>  
-        <title>xwasp blogs</title>
-    </head>
-    <body> 
-        <h1><i>News of the Times</i></h1>
-        {%for post in posts%}
-        <div>
-        <h2>{{post.title}}</h2>
-        <p>{{post.text|linebreaksbr}}</p>
-        <i>{{post.published_date}}</i>
+<!doctype HTML> {% load staticfiles %}
+<html>
+
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <link rel="stylesheet" href="{%static 'css/blog.css'%}">
+    <title>xwasp blogs</title>
+</head>
+
+<body>
+    <div class="page-header">
+        <h1>
+            <i>News of the Times</i>
+        </h1>
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                {%for post in posts%}
+                <div class="post">
+                    <h2>{{post.title}}</h2>
+                    <p>{{post.text|linebreaksbr}}</p>
+                    <div class="date">
+                        <p>{{post.published_date}}</p>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
         </div>
-        {%endfor%}
-    </body>
+    </div>
+</body>
+
 </html>
